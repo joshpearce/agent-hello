@@ -28,4 +28,4 @@ const py = venvPython();
 run(py, ["-m", "pip", "install", "--upgrade", "pip"]);
 run(py, ["-m", "pip", "install", "-r", "requirements.txt"]);
 
-console.log("\nSetup complete. Run `npm run auth` to obtain a GH_TOKEN, then add it to .env.");
+console.log("\nSetup complete. Edit .env to set GH_TOKEN (see README for how to extract one from VS Code), then run `npm start`.");
