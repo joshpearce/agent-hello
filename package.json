@@ -1,0 +1,22 @@
+{
+  "name": "agent-hello",
+  "version": "0.1.0",
+  "private": true,
+  "description": "pydantic-ai hello world behind a copilot-api proxy",
+  "scripts": {
+    "setup": "npm install && node scripts/setup-python.mjs",
+    "start:proxy": "node scripts/start-proxy.mjs",
+    "start:app": "dotenv -e .env -- node scripts/run-python.mjs app/hello.py",
+    "wait": "wait-on -t 60000 http-get://localhost:4141/v1/models",
+    "start": "concurrently -k -s command-wait-app -n proxy,app -c blue,green \"npm:start:proxy\" \"npm:wait && npm run start:app\"",
+    "clean": "node scripts/clean.mjs"
+  },
+  "dependencies": {
+    "copilot-api": "latest"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "dotenv-cli": "^7.4.0",
+    "wait-on": "^8.0.0"
+  }
+}

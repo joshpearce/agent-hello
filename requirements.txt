@@ -1,0 +1,4 @@
+pydantic-ai>=0.0.14
+python-dotenv>=1.0.0
+httpx>=0.27
+openai>=1.40
